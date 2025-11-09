@@ -1,6 +1,6 @@
 # docker-compose.yml
 services:
-  restaurant-service:
+  user-service:
     build:
       context: ./restaurant-service
       dockerfile: Dockerfile
@@ -10,7 +10,7 @@ services:
     networks:
       - food-network
 
-  user-service:
+  restaurant-service:
     build:
       context: ./user-service
       dockerfile: Dockerfile
@@ -20,7 +20,7 @@ services:
     networks:
       - food-network
 
-  delivery-service:
+  order-service:
     build:
       context: ./delivery-service
       dockerfile: Dockerfile
