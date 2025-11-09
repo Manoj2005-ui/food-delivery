@@ -1,0 +1,35 @@
+# docker-compose.yml
+services:
+  restaurant-service:
+    build:
+      context: ./restaurant-service
+      dockerfile: Dockerfile
+    container_name: restaurant-service
+    ports:
+      - "3001:3000"
+    networks:
+      - food-network
+
+  user-service:
+    build:
+      context: ./user-service
+      dockerfile: Dockerfile
+    container_name: user-service
+    ports:
+      - "3002:3000"
+    networks:
+      - food-network
+
+  delivery-service:
+    build:
+      context: ./delivery-service
+      dockerfile: Dockerfile
+    container_name: delivery-service
+    ports:
+      - "3003:3000"
+    networks:
+      - food-network
+
+networks:
+  food-network:
+    driver: bridge
